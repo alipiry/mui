@@ -1,0 +1,34 @@
+{
+  "name": "mui",
+  "version": "1.0.0",
+  "description": "MRL User Interface for deploying code on NAO Robot",
+  "preferGlobal": true,
+  "bin": "src/mui.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ts-node": "ts-node src/mui.ts",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alipiry/mui.git"
+  },
+  "author": "Ali Piry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alipiry/mui/issues"
+  },
+  "homepage": "https://github.com/alipiry/mui#readme",
+  "dependencies": {
+    "@types/inquirer": "0.0.43",
+    "chalk": "^2.4.1",
+    "commander": "^2.19.0",
+    "core-js": "^2.5.7",
+    "inquirer": "^6.2.1"
+  },
+  "devDependencies": {
+    "@types/core-js": "^2.5.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.1"
+  }
+}
