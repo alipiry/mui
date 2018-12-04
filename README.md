@@ -31,12 +31,8 @@ First of all, clone the project and change your working directory to it:
 Install dependencies and devDependencies:
 
 ```bash
-  npm i typescript -D
-  npm i chalk -S 
-  npm i commander -S
-  npm i inquirer -S && npm i @types/inquirer -S
-  npm i core-js -S && npm i @types/core-js -D
-  npm i ts-node -D
+  npm i chalk commander inquirer @types/inquirer core-js @types/core-js -S
+  npm i ts-node typescript -D
 ```
 ## License
 
