@@ -6,12 +6,17 @@
 
 
 > MRL User Interface for deploying code on NAO Robot
-- This project is developed for Linux OS.
 
 ## Requirements
 
 Make sure you have installed `nodejs and npm` on your machine:
- 
+
+macOS:
+```bash
+  brew install node
+```
+
+Linux: 
 ```bash
   sudo apt install nodejs npm 
 ```
