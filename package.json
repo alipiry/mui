@@ -19,10 +19,12 @@
   },
   "homepage": "https://github.com/alipiry/mui#readme",
   "dependencies": {
+    "@types/figlet": "^1.2.0",
     "@types/inquirer": "0.0.43",
     "chalk": "^2.4.1",
     "commander": "^2.19.0",
     "core-js": "^2.5.7",
+    "figlet": "^1.2.1",
     "inquirer": "^6.2.1"
   },
   "devDependencies": {
