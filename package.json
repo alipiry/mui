@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/alipiry/mui#readme",
   "dependencies": {
+    "@types/core-js": "^2.5.0",
     "@types/figlet": "^1.2.0",
     "@types/inquirer": "0.0.43",
     "chalk": "^2.4.1",
@@ -28,7 +29,6 @@
     "inquirer": "^6.2.1"
   },
   "devDependencies": {
-    "@types/core-js": "^2.5.0",
     "ts-node": "^7.0.1",
     "typescript": "^3.2.1"
   }
