@@ -1,4 +1,4 @@
-import './pollyfills'
+import './pollyfills';
 import chalk from 'chalk';
 import * as figlet from 'figlet';
 
