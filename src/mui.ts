@@ -4,23 +4,29 @@ import chalk from 'chalk';
 import * as figlet from 'figlet';
 import program from 'commander';
 import inquirer from 'inquirer';
-
 const log = console.log;
-log(
-  chalk.yellow(
-    figlet.textSync(
-      'M U I',
-      {
-        horizontalLayout: 'full',
-      }
+
+const banner = () => {
+  log(
+    chalk.yellow(
+      figlet.textSync(
+        'M U I',
+        {
+          horizontalLayout: 'full',
+        }
+      )
     )
-  )
-);
+  );
+};
 
-program
-  .version('1.0.0', '-v, --version')
-  .parse(process.argv);
+const showVersion = () => {
+  program
+    .version('1.0.0', '-v, --version')
+    .parse(process.argv);
+  return true;
+};
 
+const q = () => {
 inquirer
   .prompt([
     {
@@ -29,6 +35,14 @@ inquirer
       message: 'Are you enjoy it?'
     }
   ])
-  .then(answers => {
-    log(answers);
+  .then(() => {
+    log(':)');
   });
+};
+
+if(!showVersion()) {
+  banner();
+  q();
+}
+banner();
+q();

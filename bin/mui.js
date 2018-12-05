@@ -16,20 +16,33 @@ var figlet = __importStar(require("figlet"));
 var commander_1 = __importDefault(require("commander"));
 var inquirer_1 = __importDefault(require("inquirer"));
 var log = console.log;
-log(chalk_1.default.yellow(figlet.textSync('M U I', {
-    horizontalLayout: 'full',
-})));
-commander_1.default
-    .version('1.0.0', '-v, --version')
-    .parse(process.argv);
-inquirer_1.default
-    .prompt([
-    {
-        type: 'input',
-        name: 'q1',
-        message: 'Are you enjoy it?'
-    }
-])
-    .then(function (answers) {
-    log(answers);
-});
+var banner = function () {
+    log(chalk_1.default.yellow(figlet.textSync('M U I', {
+        horizontalLayout: 'full',
+    })));
+};
+var showVersion = function () {
+    commander_1.default
+        .version('1.0.0', '-v, --version')
+        .parse(process.argv);
+    return true;
+};
+var q = function () {
+    inquirer_1.default
+        .prompt([
+        {
+            type: 'input',
+            name: 'q1',
+            message: 'Are you enjoy it?'
+        }
+    ])
+        .then(function () {
+        log(':)');
+    });
+};
+if (!showVersion()) {
+    banner();
+    q();
+}
+banner();
+q();
