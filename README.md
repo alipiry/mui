@@ -9,7 +9,7 @@
 
 ## Requirements
 
-Make sure you have installed `nodejs and npm` on your machine:
+Make sure you have `nodejs and npm` installed on your machine:
 
 macOS:
 ```bash
