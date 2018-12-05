@@ -5,14 +5,13 @@
       "es2017","es2015","dom","es6"
     ],
     "module": "commonjs",
-    "outDir": "src",
+    "rootDir": "./src",
+    "outDir": "./bin",
+    "declaration": true,
     "sourceMap": false,
-    "strict": true
-  },
-  "include": [
-    "src/**.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "strict": true,
+    "types": ["node"],
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  }
 }
