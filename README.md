@@ -21,7 +21,7 @@ Linux:
   sudo apt install nodejs npm 
 ```
 
-##Usage 
+## Usage 
 Install globally `mui-nao` package: 
 
 ```bash
@@ -44,8 +44,7 @@ First of all, clone the project and change your working directory to it:
 Install dependencies and devDependencies:
 
 ```bash
-  npm i chalk commander inquirer figlet -S
-  npm i ts-node typescript nodemon @types/inquirer @types/figlet -D
+  npm install
 ```
 ## License
 
