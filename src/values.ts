@@ -1,3 +1,5 @@
+import fs from "fs";
+
 const teams: Array<object> = [
   { name: 'Invisibles', number: 0 },
   { name: 'UT Austin Villa', number: 1 },
@@ -48,19 +50,16 @@ const teams: Array<object> = [
   { name: 'Rinobot', number: 47 }
 ];
 
-export let robots: Array<object> = [
-  { name: 'Lucas', number: 8 },
-  { name: 'Amitis', number: 10 },
-  { name: 'Diana', number: 11 },
-  { name: 'Leo', number: 12 },
-  { name: 'Asha', number: 13 }
-];
+// @ts-ignore
+export const robots: Array<String> = fs.readFileSync('Config/Robots/robots.cfg', 'utf8')
+  .match(/"\b(?:(?!AL)\w)+\b"/g)
+  .toString()
+  .split('"')
+  .join('')
+  .split(',');
 
 export const teamsPlain: Array<any> = teams.map((teamObject: any) => {
   return `${teamObject.name} (${teamObject.number})`;
-});
-export const robotsPlain: Array<any> = robots.map((robotObject: any) => {
-  return `${robotObject.name} (${robotObject.number})`;
 });
 
 export const colors: Array<String> = [
@@ -75,22 +74,9 @@ export const colors: Array<String> = [
   'gray'
 ];
 
-export let locations: Array<String> = [
-  'Default',
-  'Lab',
-  'NoWiFi',
-  'io2018',
-  'rc2018'
-];
+export const locations: Array<String> = fs.readdirSync('Config/Locations');
 
-export let wirelessProfiles: Array<String> = [
-  'SPL_IO.wpa',
-  'SPL_A.wpa',
-  'SPL_B.wpa',
-  'SPL_C.wpa',
-  'SPL_D.wpa',
-  'Lab.wpa'
-];
+export const wirelessProfiles: Array<String> = fs.readdirSync('Install/Network/Profiles');
 
 export const codeConfig: Array<String> = [
   'Develop',
