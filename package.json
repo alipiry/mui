@@ -1,6 +1,6 @@
 {
   "name": "mui-nao",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "MRL User Interface for deploying code on NAO Robot",
   "main": "bin/mui.js",
   "bin": {
