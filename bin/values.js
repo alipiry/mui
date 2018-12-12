@@ -1,5 +1,9 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+var fs_1 = __importDefault(require("fs"));
 var teams = [
     { name: 'Invisibles', number: 0 },
     { name: 'UT Austin Villa', number: 1 },
@@ -49,18 +53,15 @@ var teams = [
     { name: 'Recife Soccer', number: 46 },
     { name: 'Rinobot', number: 47 }
 ];
-exports.robots = [
-    { name: 'Lucas', number: 8 },
-    { name: 'Amitis', number: 10 },
-    { name: 'Diana', number: 11 },
-    { name: 'Leo', number: 12 },
-    { name: 'Asha', number: 13 }
-];
+// @ts-ignore
+exports.robots = fs_1.default.readFileSync('Config/Robots/robots.cfg', 'utf8')
+    .match(/"\b(?:(?!AL)\w)+\b"/g)
+    .toString()
+    .split('"')
+    .join('')
+    .split(',');
 exports.teamsPlain = teams.map(function (teamObject) {
     return teamObject.name + " (" + teamObject.number + ")";
-});
-exports.robotsPlain = exports.robots.map(function (robotObject) {
-    return robotObject.name + " (" + robotObject.number + ")";
 });
 exports.colors = [
     'blue',
@@ -73,21 +74,8 @@ exports.colors = [
     'brown',
     'gray'
 ];
-exports.locations = [
-    'Default',
-    'Lab',
-    'NoWiFi',
-    'io2018',
-    'rc2018'
-];
-exports.wirelessProfiles = [
-    'SPL_IO.wpa',
-    'SPL_A.wpa',
-    'SPL_B.wpa',
-    'SPL_C.wpa',
-    'SPL_D.wpa',
-    'Lab.wpa'
-];
+exports.locations = fs_1.default.readdirSync('Config/Locations');
+exports.wirelessProfiles = fs_1.default.readdirSync('Install/Network/Profiles');
 exports.codeConfig = [
     'Develop',
     'Debug',
