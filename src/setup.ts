@@ -18,17 +18,15 @@ const questions: Array<object> = [
   { type: 'input', name: 'magicNumber', message: 'Choose your magic number:', default: 85 },
 ];
 
-export const setup: any = () => {
-  inquirer
-    .prompt(questions)
-    .then(answers =>
-      fs.writeFileSync(
-        'config.json',
-        JSON.stringify(
-          answers,
-          null,
-          '  '
-        )
+export const setup = (): void => {
+  inquirer.prompt(questions).then(answers =>
+    fs.writeFileSync(
+      'config.json',
+      JSON.stringify(
+        answers,
+        null,
+        '  '
       )
-    );
+    )
+  );
 };

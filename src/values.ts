@@ -1,6 +1,11 @@
 import fs from "fs";
 
-const teams: Array<object> = [
+type Team = {
+  name: String,
+  number: Number
+};
+
+const teams: Array<Team> = [
   { name: 'Invisibles', number: 0 },
   { name: 'UT Austin Villa', number: 1 },
   { name: 'Austrian Kangaroos', number: 2 },
@@ -50,17 +55,17 @@ const teams: Array<object> = [
   { name: 'Rinobot', number: 47 }
 ];
 
-// @ts-ignore
-export const robots: Array<String> = fs.readFileSync('Config/Robots/robots.cfg', 'utf8')
-  .match(/"\b(?:(?!AL)\w)+\b"/g)
+export const teamsPlain: Array<String> = teams.map((team: Team) => {
+  return `${team.name} (${team.number})`;
+});
+
+export const robots: Array<String> =
+  (fs.readFileSync('Config/Robots/robots.cfg', 'utf8')
+  .match(/"\b(?:(?!AL)\w)+\b"/g) || '')
   .toString()
   .split('"')
   .join('')
   .split(',');
-
-export const teamsPlain: Array<any> = teams.map((teamObject: any) => {
-  return `${teamObject.name} (${teamObject.number})`;
-});
 
 export const colors: Array<String> = [
   'blue',
