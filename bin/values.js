@@ -53,16 +53,15 @@ var teams = [
     { name: 'Recife Soccer', number: 46 },
     { name: 'Rinobot', number: 47 }
 ];
-// @ts-ignore
-exports.robots = fs_1.default.readFileSync('Config/Robots/robots.cfg', 'utf8')
-    .match(/"\b(?:(?!AL)\w)+\b"/g)
+exports.teamsPlain = teams.map(function (team) {
+    return team.name + " (" + team.number + ")";
+});
+exports.robots = (fs_1.default.readFileSync('Config/Robots/robots.cfg', 'utf8')
+    .match(/"\b(?:(?!AL)\w)+\b"/g) || '')
     .toString()
     .split('"')
     .join('')
     .split(',');
-exports.teamsPlain = teams.map(function (teamObject) {
-    return teamObject.name + " (" + teamObject.number + ")";
-});
 exports.colors = [
     'blue',
     'red',

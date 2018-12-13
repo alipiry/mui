@@ -1,1 +1,1 @@
-export declare const setup: any;
+export declare const setup: () => void;

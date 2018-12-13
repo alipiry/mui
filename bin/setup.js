@@ -16,9 +16,7 @@ var questions = [
     { type: 'input', name: 'magicNumber', message: 'Choose your magic number:', default: 85 },
 ];
 exports.setup = function () {
-    inquirer_1.default
-        .prompt(questions)
-        .then(function (answers) {
+    inquirer_1.default.prompt(questions).then(function (answers) {
         return fs_1.default.writeFileSync('config.json', JSON.stringify(answers, null, '  '));
     });
 };

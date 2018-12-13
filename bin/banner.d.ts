@@ -1,1 +1,1 @@
-export declare const banner: any;
+export declare const banner: () => void;
