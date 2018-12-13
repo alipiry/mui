@@ -7,7 +7,6 @@
     "mui": "bin/mui.js"
   },
   "scripts": {
-    "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/mui.ts",
     "dev": "node ./bin/mui.js"
   },
   "repository": {
@@ -36,8 +35,6 @@
     "@types/figlet": "^1.2.0",
     "@types/inquirer": "0.0.43",
     "@types/node": "^10.12.12",
-    "nodemon": "^1.18.7",
-    "ts-node": "^7.0.1",
     "typescript": "^3.2.1"
   }
 }
