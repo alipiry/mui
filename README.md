@@ -7,9 +7,11 @@
 
 > MRL User Interface for deploying code on NAO Robot
 
+> Note: You can only use this CLI if you are using [B-Human](https://github.com/bhuman/BHumanCodeRelease) Framework
+
 ## Status
 
-Under Development 🚧
+🚧 Under Development 🚧
 
 ## Requirements
 
@@ -32,7 +34,7 @@ Install globally `mui-nao` package:
   npm i mui-nao -g
 ```
 
-then simply run `mui` in your command line:
+Now you can simply run `mui` in your command line:
 ```bash
   > mui
 ```
@@ -50,6 +52,13 @@ Install dependencies and devDependencies:
 ```bash
   npm install
 ```
+
+### Running
+
+```bash
+  npm run dev
+```
+
 ## License
 
 [MIT](http://vjpr.mit-license.org)
