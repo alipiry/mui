@@ -10,6 +10,6 @@ if (isInRightDir) {
   setup();
 } else {
   console.log(chalk.white.bgRed.bold(
-    'You are not in Right Directory!!!\nYour working dir must have "Make" and "Config" dirs!'
+    'You are not in the Right Directory!!!\nYour working dir must have "Make, Config and Install" dirs!'
   ));
 }
