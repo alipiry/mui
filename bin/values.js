@@ -54,14 +54,34 @@ var teams = [
     { name: 'Rinobot', number: 47 }
 ];
 exports.teamsPlain = teams.map(function (team) {
-    return team.name + " (" + team.number + ")";
+    return team.name + ": " + team.number;
 });
-exports.robots = (fs_1.default.readFileSync('Config/Robots/robots.cfg', 'utf8')
+exports.robotNames = (fs_1.default.readFileSync('Config/Robots/robots.cfg', 'utf8')
     .match(/"\b(?:(?!AL)\w)+\b"/g) || '')
     .toString()
     .split('"')
     .join('')
     .split(',');
+// @ts-ignore
+exports.robotNumbers = [].concat.apply([], exports.robotNames.map(function (name) {
+    return (fs_1.default.readFileSync("Config/Robots/" + name + "/network.cfg", 'utf8')
+        .match(/\.\d*"/) || '')
+        .toString()
+        .split('.')
+        .join('')
+        .split('"')
+        .join('')
+        .split(',');
+}));
+var r = [];
+for (var i = 0; i < exports.robotNumbers.length; i++)
+    r.push({
+        name: exports.robotNames[i],
+        number: exports.robotNumbers[i]
+    });
+exports.robots = r.map(function (robot) {
+    return robot.name + " :" + robot.number;
+});
 exports.colors = [
     'blue',
     'red',

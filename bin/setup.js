@@ -3,11 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var values_1 = require("./values");
 var inquirer_1 = __importDefault(require("inquirer"));
 var fs_1 = __importDefault(require("fs"));
+var values_1 = require("./values");
 var questions = [
-    { type: 'list', name: 'team', message: 'Choose your team', choices: values_1.teamsPlain, default: 'MRL-SPL (26)' },
+    { type: 'list', name: 'team', message: 'Choose your team', choices: values_1.teamsPlain, default: 'MRL-SPL: 26' },
     { type: 'checkbox', name: 'robots', message: 'Choose your robots', choices: values_1.robots },
     { type: 'list', name: 'color', message: 'Choose your color', choices: values_1.colors, default: 'blue' },
     { type: 'list', name: 'location', message: 'Choose your location', choices: values_1.locations, default: 'Lab' },
@@ -15,8 +15,13 @@ var questions = [
     { type: 'list', name: 'config', message: 'Choose your code config', choices: values_1.codeConfig, default: 'Develop' },
     { type: 'input', name: 'magicNumber', message: 'Choose your magic number:', default: 85 },
 ];
+var showConfig = function () {
+    var config = JSON.parse(fs_1.default.readFileSync('config.json', 'utf8'));
+    console.log('\nThe compiled code will deploy with this config: \n');
+    console.log(config);
+};
 exports.setup = function () {
     inquirer_1.default.prompt(questions).then(function (answers) {
         return fs_1.default.writeFileSync('config.json', JSON.stringify(answers, null, '  '));
-    });
+    }).then(function () { return showConfig(); });
 };
