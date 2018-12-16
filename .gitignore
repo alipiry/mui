@@ -65,3 +65,5 @@ config.json
 Config/
 Install/
 Make/
+
+.DS_Store
