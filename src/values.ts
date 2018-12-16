@@ -5,6 +5,11 @@ type Team = {
   number: Number
 };
 
+type Robot = {
+  name: String,
+  number: String
+};
+
 const teams: Array<Team> = [
   { name: 'Invisibles', number: 0 },
   { name: 'UT Austin Villa', number: 1 },
@@ -56,16 +61,38 @@ const teams: Array<Team> = [
 ];
 
 export const teamsPlain: Array<String> = teams.map((team: Team) => {
-  return `${team.name} (${team.number})`;
+  return `${team.name}: ${team.number}`;
 });
 
-export const robots: Array<String> =
+export const robotNames: Array<String> =
   (fs.readFileSync('Config/Robots/robots.cfg', 'utf8')
   .match(/"\b(?:(?!AL)\w)+\b"/g) || '')
   .toString()
   .split('"')
   .join('')
   .split(',');
+
+// @ts-ignore
+export const robotNumbers: Array<String> = [].concat.apply([], robotNames.map((name) => {
+  return (fs.readFileSync(`Config/Robots/${name}/network.cfg`, 'utf8')
+    .match(/\.\d*"/) || '')
+    .toString()
+    .split('.')
+    .join('')
+    .split('"')
+    .join('')
+    .split(',')}
+));
+
+let r = [];
+for (let i = 0; i < robotNumbers.length; i++) r.push({
+  name: robotNames[i],
+  number: robotNumbers[i]
+});
+
+export const robots: Array<String> = r.map((robot: Robot) => {
+  return `${robot.name} :${robot.number}`
+});
 
 export const colors: Array<String> = [
   'blue',
